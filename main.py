@@ -1,5 +1,7 @@
 import pygame, sys
+from settings import *
 
+#Pygame setup
 pygame.init()
 screen_width = 1200
 screen_height = 700
