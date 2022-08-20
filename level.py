@@ -13,8 +13,8 @@ class Level:
         for row_index, row in enumerate(layout):
             for col_index,cell in enumerate(row):
                 if cell == 'X':
-                    x = col_index
-                    y = row_index
+                    x = col_index * tile_size
+                    y = row_index * tile_size  # row is 0-10
                     tile = Tile((x,y),tile_size)
                     self.tiles.add(tile)
             #    print(f'{row_index},{col_index}:{cell}') for exact X value and row numbers
