@@ -3,7 +3,7 @@ level_map = [
 '                            ',
 '                            ',
 ' XX    XXX            XX    ',     #Each "X" represents a column
-' XX                         ',
+' XX P                       ',
 ' XXXX         XX         XX ',
 ' XXXX       XX              ',
 ' XX    X  XXXX    XX  XX    ',

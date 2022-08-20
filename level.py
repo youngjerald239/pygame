@@ -2,6 +2,7 @@ from re import X
 import pygame
 from tiles import Tile
 from settings import tile_size
+from player import Player
 
 class Level:
     def __init__(self,level_data,surface):
@@ -13,17 +14,27 @@ class Level:
 
     def setup_level(self,layout):
         self.tiles = pygame.sprite.Group()
+        self.player = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
             for col_index,cell in enumerate(row):
+                x = col_index * tile_size
+                y = row_index * tile_size  # row is 0-10
+
                 if cell == 'X':
-                    x = col_index * tile_size
-                    y = row_index * tile_size  # row is 0-10
                     tile = Tile((x,y),tile_size)
                     self.tiles.add(tile)
+                if cell == 'P':                 # Tile info for the Player
+                    player_sprite = Player((x,y))
+                    self.player.add(player_sprite)
             #    print(f'{row_index},{col_index}:{cell}') for exact X value and row numbers
             # print(row_index) To view row data and number
             # print(row) To view just the rows
 
     def run(self):
+
+        # level tiles
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
+
+        # Player
+        self.player.draw(self.display_surface)
