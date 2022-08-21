@@ -55,6 +55,18 @@ class Level:
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
 
+    def vertical_movement_collision(self):
+        player = self.player.sprite
+        player.apply_gravity()
+
+        # checks for verticle collisions 
+        for sprite in self.tiles.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if player.direction.y > 0:
+                    player.rect.bottom = sprite.rect.top
+                elif player.direction.x < 0:
+                    player.rect.top = sprite.rect.bottom
+
     def run(self):
 
         # level tiles
@@ -65,5 +77,6 @@ class Level:
         # Player
         self.player.update()
         self.horizontil_movement_collision()
+        self.vertical_movement_collision()
         self.player.draw(self.display_surface)
         
