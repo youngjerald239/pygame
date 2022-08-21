@@ -64,6 +64,7 @@ class Level:
             if sprite.rect.colliderect(player.rect):
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
+                    player.direction.y = 0
                 elif player.direction.x < 0:
                     player.rect.top = sprite.rect.bottom
 
