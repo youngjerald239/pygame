@@ -15,6 +15,7 @@ class Level:
     def setup_level(self,layout):
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+
         for row_index, row in enumerate(layout):
             for col_index,cell in enumerate(row):
                 x = col_index * tile_size
@@ -24,7 +25,7 @@ class Level:
                     tile = Tile((x,y),tile_size)
                     self.tiles.add(tile)
                 if cell == 'P':                 # Tile info for the Player
-                    player_sprite = Player((x,y))
+                    player_sprite = Player((x,y),self.display_surface)
                     self.player.add(player_sprite)
             #    print(f'{row_index},{col_index}:{cell}') for exact X value and row numbers
             # print(row_index) To view row data and number
