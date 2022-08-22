@@ -80,7 +80,7 @@ class Player(pygame.sprite.Sprite):
             dust_particle = self.dust_run_particles[int(self.dust_frame_index)]
 
             if self.facing_right:
-                pos = self.rect.bottomleft
+                pos = self.rect.bottomleft - pygame.math.Vector2(2,9)
                 self.display_surface.blit(dust_particle,pos)
 
     def get_input(self):
