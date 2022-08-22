@@ -17,6 +17,10 @@ class Level:
         self.dust_sprite = pygame.sprite.GroupSingle()
 
     def create_jump_particles(self,pos):
+        if self.player.sprite.facing_right:
+            pos -= pygame.math.Vector2(10,5)
+        else:
+            pos += pygame.math.Vector2(10,-5)
         jump_particle_sprite = ParticleEffect(pos,'jump')
         self.dust_sprite.add(jump_particle_sprite)
 
@@ -97,14 +101,15 @@ class Level:
 
     def run(self):
 
+        # dust particles
+        self.dust_sprite.update(self.world_shift)
+        self.dust_sprite.draw(self.display_surface)
+
         # level tiles
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
 
-        # dust particles
-        self.dust_sprite.update(self.world_shift)
-        self.dust_sprite.draw(self.display_surface)
 
         # Player
         self.player.update()
