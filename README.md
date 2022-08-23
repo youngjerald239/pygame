@@ -1,7 +1,8 @@
 # pygame
 Simple game coding in Python and Pygame
 Code has collision and animation for jump, idle, run, and fall.
-# Jump around a blank level with JumpKat!
+# Jump around a blank level with JumpKat! 
+Game assets creator link: <Link> "https://pzuh.itch.io/"</Link>
 <img src="https://i.imgur.com/PVatOem.png" title="source: imgur.com" /></a>
 
 # Installing Python
